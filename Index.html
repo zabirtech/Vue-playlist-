@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hello</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+
+
+</body>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script src="https://unpkg.com/vuex" type="text/javascript"></script>
+<script>
+    const store = new Vuex.Store({
+        state: {
+            songs: [{
+                    name: "Despacito"
+                }, {
+                    name: "Will you"
+                }, {
+                    name: "You are not alone !"
+                },
+
+            ]
+
+        },
+
+        getters: {
+            getAllSongs: state => {
+                return state.songs;
+
+            }
+
+
+        },
+
+        mutations: {
+            addSong: (state, name) => {
+                console.log('Will add a song called ' + name);
+
+            }
+        },
+
+        actions: {
+            addSong: context => {
+                context.commit("addSong", "Rockstar");
+            }
+        }
+
+
+
+
+
+    });
+    store.dispatch("addSong");
+</script>
+
+</html>
